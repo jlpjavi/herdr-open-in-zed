@@ -32,8 +32,8 @@ const fail = (message: string): never => {
 const env = process.env;
 const herdr = env.HERDR_BIN_PATH ?? "herdr";
 
-// `--cwd <dir>` skips the pane lookup, for callers that have no HerdR pane (the menu, the
-// Claude Code button).
+// `--cwd <dir>` skips the pane lookup, for callers that have no HerdR pane (the
+// Claude Code `/zed` command).
 const flag = process.argv.indexOf("--cwd");
 const explicitCwd = flag === -1 ? undefined : process.argv[flag + 1];
 
