@@ -14,11 +14,11 @@ Set `ZED_HERDR_APP=preview` or `stable` to restrict the choice. macOS app paths 
 
 | Where | How |
 | --- | --- |
-| Any HerdR pane | `ctrl+alt+z` opens a small popup. Click **Open in Zed** (or Enter, Tab to switch, Esc to cancel). |
+| Any HerdR pane | `ctrl+alt+z` opens the focused project in Zed right away. |
 | A Claude Code pane | Type `/zed`. Needs the mod below. |
 | Scripts | `bun src/open.ts` (uses the focused pane) or `bun src/open.ts --cwd <dir>`. |
 
-HerdR itself has no hook to add items to its menus or sidebar (plugin v1), so the click target is the popup.
+HerdR itself has no hook to add items to its menus or sidebar (plugin v1), so there is no clickable indicator; the key binding is the trigger.
 
 ## Install
 
@@ -30,17 +30,15 @@ herdr plugin enable jlpjavi.zed-open
 
 Actions run with Bun straight from `src/`; there is no build step.
 
-Bind the popup to a key in `~/.config/herdr/config.toml`:
+Bind it to a key in `~/.config/herdr/config.toml`:
 
 ```toml
 [[keys.command]]
 key = "ctrl+alt+z"
 type = "plugin_action"
-command = "jlpjavi.zed-open.menu"
-description = "open project in zed (menu)"
+command = "jlpjavi.zed-open.open"
+description = "open project in zed"
 ```
-
-`jlpjavi.zed-open.open` runs the open directly with no popup.
 
 ## Claude Code button (optional)
 

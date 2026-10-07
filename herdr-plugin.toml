@@ -10,17 +10,3 @@ id = "open"
 title = "Open project in Zed"
 contexts = ["workspace"]
 command = ["bun", "src/open.ts"]
-
-[[actions]]
-id = "menu"
-title = "Open project in Zed (menu)"
-contexts = ["workspace"]
-command = ["bun", "src/menu-open.ts"]
-
-[[panes]]
-id = "menu"
-title = "Open in Zed"
-placement = "popup"
-width = 40
-height = 9
-command = ["bun", "src/menu.ts"]
