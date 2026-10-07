@@ -15,10 +15,10 @@ Set `ZED_HERDR_APP=preview` or `stable` to restrict the choice. macOS app paths 
 | Where | How |
 | --- | --- |
 | Any HerdR pane | `ctrl+alt+z` opens a small popup. Click **Open in Zed** (or Enter, Tab to switch, Esc to cancel). |
-| A Claude Code pane | Click the **Open in Zed** button above the prompt (hotkey `z` after focusing the band). Needs the mod below. |
+| A Claude Code pane | Type `/zed`. Needs the mod below. |
 | Scripts | `bun src/open.ts` (uses the focused pane) or `bun src/open.ts --cwd <dir>`. |
 
-HerdR itself has no hook to add items to its menus or sidebar (plugin v1), so the click targets are the popup and the Claude Code button.
+HerdR itself has no hook to add items to its menus or sidebar (plugin v1), so the click target is the popup.
 
 ## Install
 
@@ -44,9 +44,9 @@ description = "open project in zed (menu)"
 
 ## Claude Code button (optional)
 
-`claude-mod/` is a Claude Code mod that draws an **Open in Zed** button above the prompt and runs `src/open.ts --cwd <session dir>`. Validate with `claude plugin validate claude-mod`.
+`claude-mod/` is a Claude Code mod that adds a `/zed` slash command that runs `src/open.ts --cwd <session dir>`. Validate with `claude plugin validate claude-mod`.
 
-Load it for one session with `claude --plugin-dir ~/projects/herdr-open-in-zed/claude-mod`, or for every session by adding the folder to `CLAUDE_CODE_PLUGIN_DIRS` in the `env` block of `~/.claude/settings.json`. Clicks reach the button only in Claude Code's fullscreen mode; otherwise focus the band and press `z`. The mod API is early access and may change between Claude Code releases.
+Load it for one session with `claude --plugin-dir ~/projects/herdr-open-in-zed/claude-mod`, or for every session by adding the folder to `CLAUDE_CODE_PLUGIN_DIRS` in the `env` block of `~/.claude/settings.json`. The mod API is early access and may change between Claude Code releases.
 
 ## herdr in Zed's agent panel
 
